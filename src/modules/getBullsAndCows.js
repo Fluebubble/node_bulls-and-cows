@@ -14,6 +14,30 @@
  */
 function getBullsAndCows(userInput, numberToGuess) {
   /* Write your code here */
+  const userInputArr = userInput.toString().split('');
+  const numberToGuessArr = numberToGuess.toString().split('');
+  const result = { bulls: 0, cows: 0 };
+
+  for (let i = 0; i < userInputArr.length; i++) {
+    if (
+      numberToGuessArr.includes(userInputArr[i]) &&
+      numberToGuessArr.indexOf(userInputArr[i]) === i
+    ) {
+      result.bulls += 1;
+    } else if (numberToGuessArr.includes(userInputArr[i])) {
+      result.cows += 1;
+    }
+  }
+
+  // if (result.bulls === 4) {
+  //   console.log('you won!');
+
+  //   return;
+  // }
+
+  // console.log(result);
+
+  return result;
 }
 
 module.exports = {
